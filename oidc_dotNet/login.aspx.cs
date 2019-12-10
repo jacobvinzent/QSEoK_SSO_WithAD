@@ -233,10 +233,5 @@ namespace oidc_dotNet
             return response.Content;
         }
 
-
-
-
-
-
     }
 }
