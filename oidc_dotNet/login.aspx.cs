@@ -75,7 +75,7 @@ namespace oidc_dotNet
                 principal = UserPrincipal.FindByIdentity(pc, genericPrincipal.Identity.Name);
 
 
-                TextBox1.Text = principal.Name;
+                
 
                 var firstName = principal.GivenName ?? string.Empty;
                 var lastName = principal.Surname ?? string.Empty;
@@ -90,17 +90,10 @@ namespace oidc_dotNet
                     {
                         if (string.IsNullOrEmpty(onlyGroupsStartingWith) || (g.ToString().StartsWith(onlyGroupsStartingWith) && !string.IsNullOrEmpty(onlyGroupsStartingWith)))
                         {
-                            //if (string.IsNullOrEmpty(groupArray))
-                            //{
+                            
                             Array.Resize(ref groupArray, groupArray.Length + 1);
                             groupArray[groupArray.GetUpperBound(0)] = g.ToString();
-                            //groupArray = "\"" + g.ToString() + "\"";
-                            //}
-                            //else
-                            //{
-                            //    Array.Resize(ref groupArray, groupArray.Length + 1);
-                            //    groupArray[groupArray.GetUpperBound(0)] = g.ToString();
-                            //}
+                            
                         }
                     }
 
@@ -200,7 +193,7 @@ namespace oidc_dotNet
 
         private static string createJWT(string username, string[] groups, string name)
         {
-            //string[] groups_ = { "Volvo", "BMW", "Ford", "Mazda" };
+            
             var payload = new Dictionary<string, object>
             {
                 { "username", username.Replace("\\\\","\\" )},
