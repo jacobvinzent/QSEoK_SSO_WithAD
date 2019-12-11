@@ -10,6 +10,8 @@ Install the .Net solution on an IIS. Configure the IIS application pool identity
 The IIS site need to run with windows authentication.
 (https://raw.githubusercontent.com/jacobvinzent/QSEoK_SSO_WithAD/master/images/winauth.PNG)
 
+![Alt text](/images/winauth.PNG?raw=true "Optional Title")
+
 
 The solution works with following claim mapping for groups: 
 groups: groups 
