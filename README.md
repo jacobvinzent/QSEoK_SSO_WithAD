@@ -7,10 +7,9 @@ This project can be used to have single sign-on from an Active Directory with QS
 
 Install the .Net solution on an IIS. Configure the IIS application pool identity to run under a domain account.
 
-The IIS site need to run with windows authentication.
-(https://raw.githubusercontent.com/jacobvinzent/QSEoK_SSO_WithAD/master/images/winauth.PNG)
+The IIS site need to run with Windows Authentication and Anonymous Authentication disabled
 
-![Alt text](/images/winauth.PNG?raw=true "Optional Title")
+![Alt text](/images/winauth.PNG?raw=true "Windows Auth")
 
 
 The solution works with following claim mapping for groups: 
