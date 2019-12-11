@@ -84,13 +84,7 @@ namespace oidc_dotNet
                     principal = UserPrincipal.FindByIdentity(pc, username);
                 }
 
-                TextBox1.Text += "username: " + username + Environment.NewLine;
-                TextBox1.Text += "username1: " + username1 + Environment.NewLine;
-
-
-
-
-
+                
 
                 var firstName =  principal.GivenName ?? string.Empty;
                 var lastName =   principal.Surname ?? string.Empty;
