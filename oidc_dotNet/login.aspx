@@ -16,7 +16,7 @@
      <div class="loading"><div class="loader">
     </div>
     <%=User.Identity.Name%>
-         <asp:TextBox ID="TextBox1" runat="server" Height="152px" Width="918px"></asp:TextBox>
+         <asp:TextBox ID="TextBox1" runat="server" Height="152px" Width="918px" Visible="False"></asp:TextBox>
         </form>
     
 </body>

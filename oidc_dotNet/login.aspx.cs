@@ -38,6 +38,7 @@ namespace oidc_dotNet
             string ignoreGroups = "";
             List<string> ignoreGroupsArray = null;
             string onlyGroupsStartingWith = "";
+            string localTesting = "false";
 
 
 
@@ -49,6 +50,8 @@ namespace oidc_dotNet
                 path = ConfigurationManager.AppSettings["path"];
                 ignoreGroups = ConfigurationManager.AppSettings["ignoreGroups"];
                 onlyGroupsStartingWith = ConfigurationManager.AppSettings["onlyGroupsStartingWith"];
+                localTesting = ConfigurationManager.AppSettings["localVS.NETDebug"];
+
 
                 ignoreGroupsArray = ignoreGroups.Split(',').ToList();
 
@@ -58,7 +61,8 @@ namespace oidc_dotNet
                 var username = Thread.CurrentPrincipal.Identity.Name;
 
                 var username1 = HttpContext.Current.User.Identity.Name;
-
+                
+                
 
                 pc = new PrincipalContext(ContextType.Domain, domain);
 
@@ -69,17 +73,31 @@ namespace oidc_dotNet
                     return;
                 }
 
-                TextBox1.Text = genericPrincipal.Identity.Name;
 
 
-                principal = UserPrincipal.FindByIdentity(pc, genericPrincipal.Identity.Name);
+                if (localTesting.ToLower() == "true")
+                {
+                    principal = UserPrincipal.FindByIdentity(pc, genericPrincipal.Identity.Name);
+                }
+                else
+                {
+                    principal = UserPrincipal.FindByIdentity(pc, username);
+                }
+
+                TextBox1.Text += "username: " + username + Environment.NewLine;
+                TextBox1.Text += "username1: " + username1 + Environment.NewLine;
 
 
-                
 
-                var firstName = principal.GivenName ?? string.Empty;
-                var lastName = principal.Surname ?? string.Empty;
+
+
+
+                var firstName =  principal.GivenName ?? string.Empty;
+                var lastName =   principal.Surname ?? string.Empty;
                 var groups = principal.GetGroups();
+
+             
+
 
                 string[] groupArray = { };
 
@@ -110,6 +128,7 @@ namespace oidc_dotNet
             }
             catch (Exception ex)
             {
+                TextBox1.Visible = true;
                 TextBox1.Text = ex.Message;
             }
             finally
