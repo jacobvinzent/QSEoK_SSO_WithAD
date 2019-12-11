@@ -12,5 +12,5 @@ The IIS site need to run with Windows Authentication and Anonymous Authenticatio
 ![Alt text](/images/winauth.PNG?raw=true "Windows Auth")
 
 
-The solution works with following claim mapping for groups: 
+The solution works with following claim mapping for groups: \
 groups: groups 
