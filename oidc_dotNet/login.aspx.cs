@@ -21,7 +21,19 @@ namespace oidc_dotNet
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            startLogin();
+            string runOnOpen= ConfigurationManager.AppSettings["runOnOpen"];
+            string showGoButton = ConfigurationManager.AppSettings["showGoButton"];
+
+            if (showGoButton.ToLower() == "true")
+            {
+                Button1.Visible = true;
+            }
+
+
+            if (runOnOpen.ToLower() == "true")
+            {
+                startLogin();
+            }
 
         }
 
@@ -246,5 +258,9 @@ namespace oidc_dotNet
             return response.Content;
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            startLogin();
+        }
     }
 }

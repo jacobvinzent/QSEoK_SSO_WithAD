@@ -13,10 +13,17 @@
         <form id="form1" runat="server">
    
         <div class="container">
-     <div class="loading"><div class="loader">
-    </div>
+        <div class="loading"><div class="loader">
+         
+        </div>
+            
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="AD Auth test" Visible="False" />
+            
     <%=User.Identity.Name%>
          <asp:TextBox ID="TextBox1" runat="server" Height="152px" Width="918px" Visible="False"></asp:TextBox>
+
+         
+
         </form>
     
 </body>
